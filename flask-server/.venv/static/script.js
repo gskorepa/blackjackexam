@@ -38,13 +38,18 @@ function updateUI(data) {
 
 function formatHand(hand) {
     if (Array.isArray(hand)) {
-        let formattedHand = '';
-        for (let i = 0; i < hand.length; i++) {
-            formattedHand += `${hand[i].rank} of ${hand[i].suit}<br>`;
-        }
-        return formattedHand;
+        return hand.map(card => {
+            const cardImage = getCardImageSrc(card);
+            return `<img class="card" src="${cardImage}" alt="${card.rank} of ${card.suit}" title="${card.rank} of ${card.suit}">`;
+        }).join('');
     } else {
         console.error('Invalid hand:', hand);
         return 'Invalid hand';
     }
+}
+
+function getCardImageSrc(card) {
+    const rank = card.rank === '10' ? '10' : card.rank[0]; // Special case for 10
+    const suit = card.suit.toLowerCase();
+    return '/images/' + rank + '_of_' + suit + '.png';
 }

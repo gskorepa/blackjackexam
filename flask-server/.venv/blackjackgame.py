@@ -10,8 +10,8 @@ class BlackjackGame:
 
     # Creation of deck dictionary, randomization of deck
     def createDeck(self):
-        suits = ['Hearts', 'Clubs', 'Spades', 'Diamonds']
-        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+        suits = ['hearts', 'clubs', 'spades', 'diamonds']
+        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
 
         deck = [{'rank': rank, 'suit': suit} for rank in ranks for suit in suits]
         random.shuffle(deck)
@@ -34,9 +34,9 @@ class BlackjackGame:
 # Game Scores
     # Define card values
     def cardValue(self, rank):
-        if rank in ['J', 'Q', 'K']:
+        if rank in ['jack', 'queen', 'king']:
             return 10
-        elif rank == 'A':
+        elif rank == 'ace':
             return 11 
         # Swapping this to a 1 in a case where you would go over is handled in calculateScore below
         else:
@@ -45,7 +45,7 @@ class BlackjackGame:
     # Calculate Score
     def calculateScore(self, hand):
         score = sum(self.cardValue(card['rank']) for card in hand)
-        if score > 21 and 'A' in [card['rank'] for card in hand]: #Handles aces putting you over
+        if score > 21 and 'ace' in [card['rank'] for card in hand]: #Handles aces putting you over
             score -= 10
         return score
     
