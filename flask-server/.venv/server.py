@@ -11,17 +11,29 @@ def index(name=None):
 @app.route('/newGame')
 def newGame():
     game.reset()
-    return jsonify({'message': 'Initial cards dealt!'})
+    return jsonify({
+        'playerHand': game.playerHand.copy(),
+        'dealerHand': game.dealerHand.copy(),
+        'result': game.result
+    })
 
 @app.route('/hit')
 def hit():
     game.hit()
-    return jsonify({'message': 'Card dealt successfully'})
+    return jsonify({
+        'playerHand': game.playerHand.copy(),
+        'dealerHand': game.dealerHand.copy(),
+        'result': game.result
+    })
 
 @app.route('/stand')
 def stand():
     game.stand()
-    return jsonify({'message': 'Player stands'})
+    return jsonify({
+        'playerHand': game.playerHand.copy(),
+        'dealerHand': game.dealerHand.copy(),
+        'result': game.result
+    })
 
 @app.route('/gameState', methods=['GET'])
 def getGameState():

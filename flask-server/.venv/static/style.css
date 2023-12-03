@@ -1,0 +1,13 @@
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+#player-hand, #dealer-hand {
+    margin-bottom: 20px;
+}
+
+#result {
+    margin-top: 20px;
+}

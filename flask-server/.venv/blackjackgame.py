@@ -60,7 +60,7 @@ class BlackjackGame:
         if not self.result:
             while self.calculateScore(self.dealerHand) < 17:
                 self.dealCard(self.dealerHand)
-            self.gameResult
+            self.gameResult()
     
     def reset(self):
         self.deck = self.createDeck()
