@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack Game</title>
+    <!-- Add your styles if needed -->
+    <style>
+        /* Add your styling here */
+    </style>
 </head>
 <body>
     <div id="game-board">
-<!--Display hands-->
+        <!-- Display hands -->
+        <div id="player-hand"></div>
+        <div id="dealer-hand"></div>
+        <div id="result"></div>
     </div>
-    <button id="hitButton">Hit</button>
-    <button id="standButton">Stand</button>
+    <button id="hitButton" onclick="hit()">Hit</button>
+    <button id="standButton" onclick="stand()">Stand</button>
+    <button id="resetButton" onclick="newGame()">New Game</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
