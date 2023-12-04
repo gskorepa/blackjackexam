@@ -9,14 +9,16 @@
 <body>
     <div id="game-board">
         <!-- Display hands -->
-        <div id="player-hand" class="cardContainer"></div>
+        <h1>Dealer's Hand:</h1>
         <div id="dealer-hand" class="cardContainer"></div>
+        <h1>Player's Hand</h1>
+        <div id="player-hand" class="cardContainer"></div>
         <div id="result"></div>
     </div>
     <button id="hitButton" onclick="hit()">Hit</button>
     <button id="standButton" onclick="stand()">Stand</button>
     <button id="resetButton" onclick="newGame()">New Game</button>
 
-    <script src="static/script.js"></script>
+    <script src="static/script.js" defer></script>
 </body>
 </html>

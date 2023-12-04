@@ -1,11 +1,12 @@
 #game-board {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center; /* Center the hands horizontally */
 }
 
-#player-hand, #dealer-hand {
+#dealer-hand, #player-hand {
     margin-bottom: 20px;
+    display: flex;
 }
 
 #result {
@@ -15,4 +16,23 @@
 .card {
     width: 60px;
     margin-right: 5px;
+    opacity: 1;
+    animation: slide-in 0.5s ease-in-out forwards; /* Use an animation instead of transition */
+}
+
+/* Define the animation */
+@keyframes slide-in {
+    from {
+        opacity: 1;
+        transform: translateX(-100px); /* Start position off-screen */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* End position on-screen */
+    }
+}
+
+/* Apply the sliding effect only to newly drawn cards */
+.new-card {
+    animation-delay: 0.5s; /* Add a delay to the sliding effect for newly drawn cards */
 }
