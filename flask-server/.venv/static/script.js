@@ -25,6 +25,7 @@ function updateUI(data) {
     document.getElementById('result').innerHTML = data.result || '';
 }
 
+// Update hands per button press
 function updateHand(handId, hand) {
     const handContainer = document.getElementById(handId);
     const formattedHand = formatHand(hand);
@@ -38,6 +39,7 @@ function updateHand(handId, hand) {
     }, 10);
 }
 
+// Format the hands to contain all the card information pulled from the deck
 function formatHand(hand) {
     return hand.map((card, index) => {
         const cardImage = getCardImageSrc(card);
@@ -47,6 +49,7 @@ function formatHand(hand) {
     }).join('');
 }
 
+// Adding card images from folder
 function getCardImageSrc(card) {
     const rank = card.rank === '10' ? '10' : card.rank[0]; // Special case for 10
     const suit = card.suit.toLowerCase();

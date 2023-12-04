@@ -44,6 +44,7 @@ def getGameState():
         'result': game.result
     })
 
+# Defining routing for images so the frontend can display them
 @app.route('/images/<path:filename>')
 def serve_image(filename):
     root_dir = os.path.dirname(os.path.abspath(__file__))
